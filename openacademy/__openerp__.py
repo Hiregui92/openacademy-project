@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 {
     'name': "Open Academy",
 
@@ -33,4 +32,5 @@
         # 'demo.xml',
     ],
     'installable' : True,
+    'auto_install' : False,
 }
