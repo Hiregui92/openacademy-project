@@ -1,5 +1,4 @@
-from openerp import api, fields, models
-
+from openerp import models, fields, api, exceptions
 
 class Session(models.Model):
     _name = 'openacademy.session'
@@ -30,3 +29,26 @@ class Session(models.Model):
                 self.taken_seats = 0.0
             else:
                 self.taken_seats = 100.0 * len(self.attendee_ids) / self.seats
+
+    @api.onchange('seats', 'attendee_ids')
+    def _verify_valid_seats(self):
+        if self.seats < 0:
+            return {
+                'warning': {
+                    'title': "Incorrect 'seats' value",
+                    'message': "The number of available seats may not be negative",
+                },
+            }
+        if self.seats < len(self.attendee_ids):
+            return {
+                'warning': {
+                    'title': "Too many attendees",
+                    'message': "Increase seats or remove excess attendees",
+                },
+            }
+
+    @api.constrains('instructor_id', 'attendee_ids')
+    def _check_instructor_not_in_attendees(self):
+        for r in self:
+            if r.instructor_id and r.instructor_id in r.attendee_ids:
+                raise exceptions.ValidationError("A session's instructor can't be an attendee")

@@ -1,4 +1,4 @@
-from openerp import fields, models
+from openerp import models, fields
 
 '''
 This module  create module of Courso
