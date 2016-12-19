@@ -94,17 +94,17 @@ msgstr "Confirmed"
 #: model:ir.actions.act_window,name:openacademy.contact_list_action
 #: model:ir.ui.menu,name:openacademy.contact_menu
 msgid "Contacts"
-msgstr "Contacts"
+msgstr "Contactos"
 
 #. module: openacademy
 #: field:openacademy.session,course_id:0
 msgid "Course"
-msgstr "Course"
+msgstr "Curso"
 
 #. module: openacademy
 #: view:openacademy.course:openacademy.course_form_view
 msgid "Course Form"
-msgstr "Course Form"
+msgstr "Formulario del Curso"
 
 #. module: openacademy
 #: model:ir.actions.act_window,name:openacademy.course_list_action
