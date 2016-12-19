@@ -398,7 +398,7 @@ msgstr "El título del curso debe ser único"
 #: code:addons/openacademy/model/openacademy_session.py:69
 #, python-format
 msgid "The number of available seats may not be negative"
-msgstr "The number of available seats may not be negative"
+msgstr "El numero de asientos disponibles no puede ser negativo"
 
 #. module: openacademy
 #: code:addons/openacademy/model/openacademy_course.py:25
