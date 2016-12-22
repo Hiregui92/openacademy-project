@@ -15,7 +15,8 @@ class Session(models.Model):
 
     instructor_id = fields.Many2one(
         'res.partner', string="Instructor", domain=[
-            '|', ('instructor', '=', True), ('category_id.name', 'ilike', "Teacher")])
+            '|', ('instructor', '=', True),
+            ('category_id.name', 'ilike', "Teacher")])
 
     course_id = fields.Many2one(
         'openacademy.course',
@@ -69,7 +70,10 @@ class Session(models.Model):
             return {
                 'warning': {
                     'title': _("Incorrect 'seats' value"),
-                    'message': _("The number of available seats may not be negative"),
+                    'message': _(
+                        "The number of available seats may not be"
+                        "negative"
+                    ),
                 },
             }
         if self.seats < len(self.attendee_ids):
@@ -85,7 +89,7 @@ class Session(models.Model):
     def _check_instructor_not_in_attendees(self):
         if self.instructor_id and self.instructor_id in self.attendee_ids:
             raise exceptions.ValidationError(
-                "A session's instructor can't be an attendee")
+                _("A session's instructor can't be an attendee"))
 
     @api.one
     @api.depends('start_date', 'duration')
