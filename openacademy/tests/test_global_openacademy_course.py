@@ -32,10 +32,10 @@ class GlobalTestOpenAcademyCourse(TransactionCase):
 
     # Mute the error openerp.sql_db to avoid it in log.
     @mute_logger('openerp.sql_db')
-    def test_01_same_name_description(self):
+    def test_10_same_name_description(self):
         '''
         Test create a course with same name and description.
-        To test contrait of name different to description.
+        To raise contrait of name different to description.
         '''
         # Error raised expected with message expected.
         with self.assertRaisesRegexp(
@@ -45,3 +45,32 @@ class GlobalTestOpenAcademyCourse(TransactionCase):
                 ):
             # Create a course with same name and description to raise error.
             self.create_course('test', 'test', None)
+
+    # Mute the error openerp.sql_db to avoid it in log.
+    @mute_logger('openerp.sql_db')
+    def test_20_two_course_same_name(self):
+        '''
+        Test create two courses with same name.
+        To raise constraint of unique name.
+        '''
+        new_id = self.create_course('test1', 'test_description', None)
+        print "===============================================new_id", new_id
+        # Error raised expected with message expected.
+        with self.assertRaisesRegexp(
+                IntegrityError,
+                'duplicate key value violates unique'
+                ' constraint "openacademy_course_name_unique"',
+                ):
+            # Create a course with same name and description to raise error.
+            new_id2 = self.create_course('test1', 'test_desciption', None)
+            print "==========================================new_id2", new_id2
+
+    # Mute the error openerp.sql_db to avoid it in log.
+    @mute_logger('openerp.sql_db')
+    def test_15_duplicate_course(self):
+        '''
+        Test to duplicate a course and check that work fine!
+        '''
+        course = self.env.ref('openacademy.course0')
+        course_id = course.copy()
+        print "===============================================course_id", course_id
