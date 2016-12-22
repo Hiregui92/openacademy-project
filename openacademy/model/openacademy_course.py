@@ -1,8 +1,7 @@
+'''
+This module create module of Course
+'''
 from openerp import api, models, fields, _
-
-'''
-This module  create module of Courso
-'''
 
 
 class Course(models.Model):

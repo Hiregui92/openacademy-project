@@ -72,8 +72,7 @@ class Session(models.Model):
                     'title': _("Incorrect 'seats' value"),
                     'message': _(
                         "The number of available seats may not be"
-                        "negative"
-                    ),
+                        "negative"),
                 },
             }
         if self.seats < len(self.attendee_ids):

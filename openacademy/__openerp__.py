@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 {
     'name': "Open Academy",
 
@@ -14,7 +15,8 @@
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
+    # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base...
+    # .../module/module_data.xml
     # for the full list
     'category': 'Test',
     'version': '0.1',
@@ -30,7 +32,7 @@
         'workflow/openacademy_session_workflow.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
-	'view/openacademy_wizard_view.xml',
+        'view/openacademy_wizard_view.xml',
         'report/openacademy_session_report.xml',
         'view/openacademy_session_board.xml',
         # 'templates.xml',
@@ -39,6 +41,8 @@
     'demo': [
         'demo/openacademy_course_demo.xml',
     ],
-    'installable' : True,
-    'auto_install' : False,
+    'installable': True,
+    'auto_install': False,
 }
+
+

@@ -54,7 +54,6 @@ class GlobalTestOpenAcademyCourse(TransactionCase):
         To raise constraint of unique name.
         '''
         new_id = self.create_course('test1', 'test_description', None)
-        print "new_id", new_id
         # Error raised expected with message expected.
         with self.assertRaisesRegexp(
                 IntegrityError,
@@ -63,7 +62,6 @@ class GlobalTestOpenAcademyCourse(TransactionCase):
                 ):
             # Create a course with same name and description to raise error.
             new_id2 = self.create_course('test1', 'test_desciption', None)
-            print "new_id2", new_id2
 
     # Mute the error openerp.sql_db to avoid it in log.
     @mute_logger('openerp.sql_db')
@@ -73,4 +71,3 @@ class GlobalTestOpenAcademyCourse(TransactionCase):
         '''
         course = self.env.ref('openacademy.course0')
         course_id = course.copy()
-        print "course_id", course_id
