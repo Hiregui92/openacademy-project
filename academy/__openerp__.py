@@ -19,16 +19,19 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': [
+        'base',
+        'website',
+    ],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/academy_templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo.xml',
+        'demo/demo.xml',
     ],
     'installable': True,
     'auto_install': False,
