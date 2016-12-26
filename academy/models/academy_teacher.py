@@ -12,5 +12,5 @@ class Teachers(models.Model):
     _name = 'academy.teachers'
     name = fields.Char()
     biography = fields.Html()
-    course_ids = fields.One2many('academy.courses', 'teacher_id', string="Courses")
+    course_ids = fields.One2many('product.template', 'teacher_id', string="Courses")
 

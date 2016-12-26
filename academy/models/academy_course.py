@@ -8,9 +8,9 @@ class Courses(models.Model):
     '''
     This class create module of Course
     '''
-    _name = 'academy.courses'
-    _inherit = 'mail.thread'
+#    _name = 'academy.courses'
+    _inherit = 'product.template'
 
-    name = fields.Char()
+#    name = fields.Char()
     teacher_id = fields.Many2one('academy.teachers', string="Teacher")
 

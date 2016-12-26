@@ -23,6 +23,7 @@
         'base',
         'website',
         'mail',
+        'website_sale',
     ],
 
     # always loaded
@@ -30,6 +31,7 @@
         'security/ir.model.access.csv',
         'views/academy_templates.xml',
         'views/views.xml',
+        'data/product_public_category.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
