@@ -22,6 +22,7 @@
     'depends': [
         'base',
         'website',
+        'mail',
     ],
 
     # always loaded
