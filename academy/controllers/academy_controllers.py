@@ -28,6 +28,5 @@ class Academy(http.Controller):
                 website=True)
     def teacher(self, teacher):
         return http.request.render('academy.biography', {
-                                    'person': teacher
-                                })
-
+            'person': teacher
+        })
